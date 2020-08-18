@@ -1,6 +1,6 @@
 {
   "name": "gizmo-browser",
-  "version": "0.0.2",
+  "version": "0.0.1",
   "description": "Compact browser.",
   "author": "Gizmo",
   "license": "MIT",
@@ -13,8 +13,7 @@
     "copyright": "Copyright (C) 2020 Gizmo",
     "win": {
       "target": "nsis",
-      "icon": "assets/icons/win/icon.ico",
-      "publisherName": "Gizmo"
+      "icon": "assets/icons/win/icon.ico"
     },
     "nsis": {
       "oneClick": false,
