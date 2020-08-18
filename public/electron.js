@@ -327,8 +327,13 @@ autoUpdater.on("download-progress", ({ percent }) => {
 });
 
 autoUpdater.on("error", (err) => {
+    
     logger.error(err);
     sendToast("An error has occurred!", "");
+
+    if (win && win instanceof BrowserWindow) {
+        win.setProgressBar(0);
+    }
 });
 
 autoUpdater.on("update-downloaded", () => {
