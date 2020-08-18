@@ -1,5 +1,6 @@
 // Modules
-const { app, BrowserWindow, BrowserView, ipcMain } = require("electron");
+const { app, BrowserWindow, BrowserView, ipcMain, Notification } = require("electron");
+const { autoUpdater } = require("electron-updater");
 const path = require("path");
 const isDev = require("electron-is-dev");
 
@@ -10,6 +11,8 @@ const settings = {
 };
 
 function createWindow () { 
+
+    autoUpdater.checkForUpdatesAndNotify();
 
     win = new BrowserWindow({
         title: "Gizmo Browser",
@@ -296,4 +299,43 @@ ipcMain.on("settingManager", (event, data) => {
             break;
         default:
     }
+});
+
+function sendToast (title, body) {
+
+    const toast = new Notification({
+        title,
+        body,
+        icon: path.join(__dirname, "../", "assets", "icons", "png", "icon_installer.png")
+    });
+
+    toast.show();
+}
+
+autoUpdater.on("update-available", () => {
+    sendToast("New update available!", "Gizmo Browser will automatically download it in the background.");
+});
+
+autoUpdater.on("download-progress", ({ percent }) => {
+    if (win && win instanceof BrowserWindow) {
+        win.setProgressBar(percent / 100);
+    }
+});
+
+autoUpdater.on("error", (err) => {
+    sendToast("An error has occurred!", "Please check the DevConsole (Ctrl+Shift+I) for any errors.");
+    throw Error(err);
+});
+
+autoUpdater.on("update-downloaded", () => {
+
+    sendToast("Update is ready!", "The application will automatically restart in 10 seconds to apply the update.");
+    
+    if (win && win instanceof BrowserWindow) {
+        win.setProgressBar(0);
+    }
+
+    setTimeout(() => {
+        autoUpdater.quitAndInstall();
+    }, 10000);
 });
