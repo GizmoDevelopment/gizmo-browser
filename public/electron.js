@@ -310,7 +310,7 @@ function sendToast (title, body) {
     const toast = new Notification({
         title,
         body,
-        icon: path.join(__dirname, "../", "assets", "icons", "png", "icon_installer.png")
+        icon: path.join(__dirname, "../", "src", "assets", "icons", "icon_installer.png")
     });
 
     toast.show();
