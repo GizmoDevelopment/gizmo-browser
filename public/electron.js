@@ -1,6 +1,7 @@
 // Modules
 const { app, BrowserWindow, BrowserView, ipcMain, Notification } = require("electron");
 const { autoUpdater } = require("electron-updater");
+const logger = require("electron-log");
 const path = require("path");
 const isDev = require("electron-is-dev");
 
@@ -9,6 +10,9 @@ var win;
 const settings = {
     themeColor: "#a31ffc"
 };
+
+autoUpdater.logger = logger;
+autoUpdater.logger.transports.file.level = "info";
 
 function createWindow () { 
 
@@ -323,8 +327,8 @@ autoUpdater.on("download-progress", ({ percent }) => {
 });
 
 autoUpdater.on("error", (err) => {
-    sendToast("An error has occurred!", "Please check the DevConsole (Ctrl+Shift+I) for any errors.");
-    throw Error(err);
+    logger.error(err);
+    sendToast("An error has occurred!", "");
 });
 
 autoUpdater.on("update-downloaded", () => {

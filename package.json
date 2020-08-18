@@ -6,7 +6,7 @@
   "license": "MIT",
   "repository": "git@github.com:GizmoDevelopment/gizmo-browser.git",
   "main": "public/electron.js",
-  "homepage": "./",           
+  "homepage": "./",
   "build": {
     "appId": "com.gizmo.browser",
     "productName": "Gizmo Browser",
@@ -58,6 +58,7 @@
     "@testing-library/user-event": "^7.2.1",
     "cross-env": "^7.0.2",
     "electron-is-dev": "^1.2.0",
+    "electron-log": "^4.2.4",
     "electron-updater": "^4.3.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
