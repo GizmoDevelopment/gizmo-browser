@@ -4,8 +4,9 @@
   "description": "Compact browser.",
   "author": "Gizmo",
   "license": "MIT",
+  "repository": "git@github.com:GizmoDevelopment/gizmo-browser.git",
   "main": "public/electron.js",
-  "homepage": "./",
+  "homepage": "./",           
   "build": {
     "appId": "com.gizmo.browser",
     "productName": "Gizmo Browser",
@@ -33,7 +34,8 @@
     "react-start": "react-scripts start",
     "react-build": "react-scripts build",
     "react-test": "react-scripts test",
-    "react-eject": "react-scripts eject"
+    "react-eject": "react-scripts eject",
+    "publish": "npm run build -p always"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -56,6 +58,7 @@
     "@testing-library/user-event": "^7.2.1",
     "cross-env": "^7.0.2",
     "electron-is-dev": "^1.2.0",
+    "electron-updater": "^4.3.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.3",
