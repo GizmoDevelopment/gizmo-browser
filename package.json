@@ -35,7 +35,7 @@
     "react-build": "react-scripts build",
     "react-test": "react-scripts test",
     "react-eject": "react-scripts eject",
-    "publish": "npm run build -p always"
+    "publish": "npm run react-build && electron-builder -p always"
   },
   "eslintConfig": {
     "extends": "react-app"
