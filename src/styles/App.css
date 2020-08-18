@@ -1,0 +1,49 @@
+@font-face {
+    font-family: "Whitney Semibold Italic";
+    src: url(../assets/fonts/Whitney\ Semibold\ Italic.otf);
+}
+
+* {
+    color: #FFF;
+    outline: none;
+    user-select: none;
+    font-family: "Whitney Semibold Italic";
+}
+
+body {
+    background-color: #FFF;
+    overflow: hidden;
+}
+
+button, input {
+    background: transparent;
+    border: none;
+    border-radius: 5px;
+}
+
+input {
+    padding: 5px;
+    background-color: #646464;
+}
+
+::placeholder {
+    color: rgba(255, 255, 255, .7);
+}
+
+button:hover, input:focus {
+    transition: background-color .6s;
+}
+
+button:hover {
+    background-color: rgba(139, 139, 139, .35);
+}
+
+svg {
+    fill: #FFF;
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar {
+    height: 2px;
+}

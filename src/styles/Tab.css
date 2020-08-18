@@ -1,0 +1,48 @@
+.tab {
+    position: relative;
+    background-color: #1b1b1b;
+    height: calc(100% - 6px);
+    width: 210px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-left: 5px;
+    margin-top: 2px;
+    border: 2px solid #1b1b1b;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    transition-property: border-left-color, border-right-color, border-top-color;
+    transition-duration: .8s;
+}
+
+.focusedTab {
+    background-color: #2a2a2a;
+    border-bottom: 2px solid #2a2a2a;
+    border-top: 2px solid;
+    border-left: 2px solid;
+    border-right: 2px solid;
+    z-index: 2;
+}
+
+.tab div {
+    width: calc(100% - 10px);
+    margin: 0;
+    margin-left: 5px;
+    height: 60%;
+    font-size: 90%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.tab img {
+    width: 20px;
+    height: auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+}
+
+.tab button {
+    margin-right: 5px;
+}
