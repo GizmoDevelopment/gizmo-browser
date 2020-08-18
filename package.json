@@ -25,7 +25,11 @@
       "uninstallerSidebar": "assets/installer/sidebar.bmp",
       "uninstallDisplayName": "Gizmo Browser",
       "license": "LICENSE"
-    }
+    },
+    "files": [
+      "!**/{dist,build}",
+      "!**/.env"
+    ]
   },
   "scripts": {
     "start": "concurrently \"cross-env BROWSER=none npm run react-start\" \"wait-on http://localhost:3000 && electron .\"",
